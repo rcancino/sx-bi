@@ -1,0 +1,98 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title text-center">Tickets de venta</h3>
+  </div>
+  <table class="table  table-condensed table-striped table-hover">
+      <thead>
+      <tr>
+          <th></th>
+          <th>Semana</th>
+          <th>Mes</th>
+          <th>Año</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td class="">Meta (3500)</td>
+        <td class="">
+                 {{vm.indicador.ventaSemanal/(vm.indicador.facturasSemanalCre + vm.indicador.facturasSemanalCon) | number:0}}
+        </td>
+        <td class="">
+                 {{vm.indicador.ventaMensual/(vm.indicador.facturasMensualCre + vm.indicador.facturasMensualCon) | number:0}}
+        </td>
+        <td class="">
+                 {{vm.indicador.ventaAnual/(vm.indicador.facturasAnualCre + vm.indicador.facturasAnualCon) | number:0}}
+        </td>
+      </tr>
+      <tr>
+        <td class="calificacion">Diferencia</td>
+        <td class="calificacion">
+          {{3500 - vm.indicador.ventaSemanal/(vm.indicador.facturasSemanalCre + vm.indicador.facturasSemanalCon) | number:0}}
+        </td>
+        <td class="calificacion">
+          {{3500 - vm.indicador.ventaMensual/(vm.indicador.facturasMensualCre + vm.indicador.facturasMensualCon) | number:0}}
+        </td>
+        <td class="calificacion">
+          {{3500 - vm.indicador.ventaAnual/(vm.indicador.facturasAnualCre + vm.indicador.facturasAnualCon) | number:0}}
+        </td>
+      </tr>
+
+      <tr class="" >
+        <td class="">Desviación</td>
+        <td class="">
+          {{((3500 - vm.indicador.ventaSemanal/(vm.indicador.facturasSemanalCre + vm.indicador.facturasSemanalCon))/3500)*100 | number:2 }} %
+        </td>
+        <td class="">
+          {{((3500 - vm.indicador.ventaMensual/(vm.indicador.facturasMensualCre + vm.indicador.facturasMensualCon))/3500)*100 | number:2}} %
+        </td>
+        <td class="">
+          {{((3500 - vm.indicador.ventaAnual/(vm.indicador.facturasAnualCre + vm.indicador.facturasAnualCon))/3500)*100 | number:2}}
+        </td>
+      </tr>
+      
+      <tr class="" >
+          <td class="">Contado</td>
+          <td class=" ">{{vm.indicador.facturasSemanalCon}}</td>
+          <td class=" ">{{vm.indicador.facturasMensualCon}}</td>
+          <td class=" ">{{vm.indicador.facturasAnualCon}}</td>
+      </tr>
+
+      <tr class="" >
+          <td class="">Crédito</td>
+          <td class=" ">{{vm.indicador.facturasSemanalCre}}</td>
+          <td class=" ">{{vm.indicador.facturasMensualCre}}</td>
+          <td class=" ">{{vm.indicador.facturasAnualCre}}</td>
+      </tr>
+
+      <tr class="" >
+        <td class="">Total</td>
+        <td class=" ">
+          {{vm.indicador.facturasSemanalCre + vm.indicador.facturasSemanalCon}}
+        </td>
+        <td class=" ">
+          {{vm.indicador.facturasMensualCre +vm.indicador.facturasMensualCon}}
+        </td>
+        <td class=" ">
+          {{vm.indicador.facturasAnualCre + vm.indicador.facturasAnualCon}}
+        </td>
+      </tr>
+
+      <tr class="" >
+        <td class="">Cancelaciones</td>
+        <td class=" ">{{vm.indicador.canceladasSemanal}}</td>
+        <td class=" ">{{vm.indicador.canceladasMensual}}</td>
+        <td class=" ">{{vm.indicador.canceladasAnual}}</td>
+      </tr>
+
+      <tr class="" >
+        <td class="">Devoluciones</td>
+        <td class=" ">{{vm.indicador.devolucionesSemanal}}</td>
+        <td class=" ">{{vm.indicador.devolucionesMensual}}</td>
+        <td class=" ">{{vm.indicador.devolucionesAnual}}</td>
+      </tr>
+
+
+      </tbody>
+  </table>
+</div>
+

@@ -4,9 +4,9 @@
     .module('sxBi')
     .controller('ResumenController', ResumenController);
 
-  ResumenController.$inject = ['$log', 'calendariosService', 'Calificacion'];
 
-  function ResumenController($log, calendariosService, Calificacion) {
+  /** @ngInject */
+  function ResumenController($scope, $log, calendariosService, Calificacion, $state) {
     var vm = this;
     //vm.getCalificacion = getCalificacion
     activate();
@@ -14,6 +14,22 @@
     function activate() {
       $log.info('Activando controlador: PapelKpiResumenController.....');
       vm.calendario = calendariosService.getCurrent();
+      if (vm.calendario) {
+        Calificacion.getCalificaciones(vm.calendario)
+          .then(function(data) {
+            vm.calificaciones = data;
+          });
+      }
+      $scope.$on('CALENDARIO_UPDATED', function() {
+        //$log.info('Calendario actualizado...');
+        vm.calendario = calendariosService.getCurrent();
+        loadCalificaciones();
+        $state.go('index.indicadores.resumen');
+      });
+    }
+
+    function loadCalificaciones() {
+      //$log.info('Actualizando calificaciones para: ');
       if (vm.calendario) {
         Calificacion.getCalificaciones(vm.calendario)
           .then(function(data) {

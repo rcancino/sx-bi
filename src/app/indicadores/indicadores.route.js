@@ -25,6 +25,18 @@
         templateUrl: 'app/indicadores/calificacion.html',
         controller: 'CalificacionController',
         controllerAs: 'vm'
+      })
+      .state('index.indicadores.resumen.precioPorKilo', {
+        url: '/resumen/precioPorKilo',
+        templateUrl: 'app/indicadores/precioPorKilo/precio-por-kilo.html',
+        controller: 'PrecioPorKiloController',
+        controllerAs: 'vm'
+      })
+      .state('index.indicadores.resumen.tickets', {
+        url: '/resumen/tickets',
+        templateUrl: 'app/indicadores/tickets/tickets.html',
+        controller: 'TicketsController',
+        controllerAs: 'vm'
       });
   }
 

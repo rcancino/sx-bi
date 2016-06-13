@@ -4,8 +4,7 @@
     .module('sxBi')
     .factory('Calificacion', Calificacion);
 
-  Calificacion.$inject = ['$http', 'Config', '$log'];
-
+  /** @ngInject */
   function Calificacion($http, Config, $log) {
 
     var service = {

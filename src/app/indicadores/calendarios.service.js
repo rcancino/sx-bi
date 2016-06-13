@@ -4,9 +4,10 @@
     .module('sxBi')
     .factory('calendariosService', calendariosService);
 
-  calendariosService.$inject = ['$http', '$localStorage'];
+  //calendariosService.$inject = ['$http', '$localStorage'];
 
-  function calendariosService ($http, $localStorage) {
+  /** @ngInject */
+  function calendariosService ($http, Config, $localStorage, $rootScope) {
     var service = {
       getCalendarios: getCalendarios,
       getCurrent: getCurrent,
@@ -16,16 +17,7 @@
     return service;
 
     function getCalendarios () {
-      //var uri = Config.ENV.API_ENDPOINT + '/bi/calendarios';
-      var uri = 'http://papel.dyndns-remote.com/api/bi/calendarios';
-      /*
-      return $http.get(uri)
-        .then( function (response) {
-          return response.data;
-        }, function(response) {
-          return response;
-        });
-        */
+      var uri = Config.API_ENDPOINT + '/bi/calendarios';
       return $http.get(uri);
     }
 
@@ -35,6 +27,7 @@
 
     function setCurrent (cal) {
       $localStorage.currentCalendario = cal;
+      $rootScope.$broadcast('CALENDARIO_UPDATED', cal);
     }
   }
 

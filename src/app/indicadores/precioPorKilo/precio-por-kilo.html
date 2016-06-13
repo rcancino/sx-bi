@@ -1,0 +1,44 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title text-center">Precio por Kg</h3>
+  </div>
+  <table class="table  table-condensed table-striped table-hover">
+      <thead>
+      <tr>
+          <th></th>
+          <th>Semana</th>
+          <th>Mes</th>
+          <th>Año</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+          <td>Costo</td>
+          <td class="">{{vm.indicador.getCostoKg('semanal') | number:2}}</td>
+          <td class="">{{vm.indicador.getCostoKg('mensual') | number:2}}</td>
+          <td class="">{{vm.indicador.getCostoKg('anual') | number:2}}</td>
+      </tr>
+      
+      <tr>
+          <td>Precio</td>
+          <td class="">{{vm.indicador.getPrecioKg('semanal') | number:2}}</td>
+          <td class="">{{vm.indicador.getPrecioKg('mensual') | number:2}}</td>
+          <td class="">{{vm.indicador.getPrecioKg('anual') | number:2}}</td>
+      </tr>
+      <tr>
+          <td>Meta</td>
+          <td class="">{{vm.indicador.getMetaPrecioKg('semanal') | number:2}}</td>
+          <td class="">{{vm.indicador.getMetaPrecioKg('mensual') | number:2}}</td>
+          <td class="">{{vm.indicador.getMetaPrecioKg('anual') | number:2}}</td>
+      </tr>
+
+      <tr>
+          <td class="calificacion">Desviación</td>
+          <td class="calificacion">{{vm.indicador.getDesviacionPrecio('semanal') | number:2}}</td>
+          <td class="calificacion">{{vm.indicador.getDesviacionPrecio('mensual') | number:2}}</td>
+          <td class="calificacion">{{vm.indicador.getDesviacionPrecio('anual') | number:2}}</td>
+      </tr>
+      </tbody>
+  </table>
+</div>
+
