@@ -1,0 +1,13 @@
+/* Only demo */
+@media (max-width: 1000px) {
+  .welcome-message {
+    display: none;
+  }
+}
+
+$navy: #5AB334;
+$nav-profil-pattern: url("../../../../assets/images/patterns/header-profile.png") no-repeat;
+
+.demo1 {
+	background-color: $navy;
+}

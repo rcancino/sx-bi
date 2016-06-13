@@ -1,0 +1,19 @@
+<div class="modal-header">
+  <h4 class="modal-title">Selector de calendario</h4>
+</div>
+<div class="modal-body ">
+  <div class="alert alert-danger" ng-if="httpError">
+    <p>{{httpError.status}} - {{httpError.statusText}}</p>
+  </div>
+  <div class="list-group">
+    <a href="" class="list-group-item" 
+      ng-repeat="cal in calendarios" ng-click="seleccionar(cal)"
+      ng-class="{'active':cal.semana === calendario.semana}">
+      Semana: {{cal.semana}} ({{cal.year}}) Fecha: {{cal.fechaFinal | date:'dd-MM-yyyy'}} 
+      <!-- <p>
+        Trimestre: {{cal.trimestre}} Dias: {{cal.diasLab}} 
+        Acu mes:{{cal.diaAcumuladoMes}} Dias mes: {{cal.diaMes}}
+      </p> -->
+    </a>
+  </div>
+</div>

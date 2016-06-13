@@ -1,0 +1,26 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title text-center">
+      {{vm.title}}
+    </h3>
+  </div>
+  <table class="table  table-condensed table-striped table-hover">
+      <thead>
+      <tr>
+          <th></th>
+          <th>Semana</th>
+          <th>Mes</th>
+          <th>Año</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="det in vm.partidas" 
+          ng-class="{'calificacion':det.tipo === 'CALIFICACION'}">
+          <td>{{det.tipo.capitalize()}}</td>
+          <td>{{det.semana}}</td>
+          <td>{{det.mes}}</td>
+          <td>{{det.year}}</td>
+      </tr>
+      </tbody>
+  </table>
+</div>

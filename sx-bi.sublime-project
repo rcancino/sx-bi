@@ -1,0 +1,52 @@
+{
+	"build_systems":
+	[
+	],
+	"folders":
+	[
+		
+		{
+			"name": "src/app",
+			"path": "src",
+			"folder_exclude_patterns": ["assets"]
+		},
+		{
+			"name": "src/assets",
+			"path": "src/assets"
+		},
+		{
+			"name":"config",
+			//"path":".",
+			"file_include_patterns": ["bower.json","gulpfile.js","karma*.*","prot*.*","pac*.*"]
+		},
+		{
+			"name": "bower",
+			"path": "bower_components"
+		},
+		{
+			"name": "gulp",
+			"path": "gulp"
+		},
+		{
+			"name": "Test",
+			"path": "e2e"
+		},
+		{
+			"name": "dist",
+			"path": "dist"
+		},
+		{
+			"name": "temp",
+			"path": ".tmp"
+		},
+		{
+			"name": "RottFoleder",
+			"path": ".",
+			"folder_exclude_patterns": [".tmp","bower_components","dist","node*","gulp","e2e","src"],
+			//"file_exclude_patterns": [".bower*",".e*",".yo*"]
+		}
+	],
+	"settings":
+	{
+	}
+}

@@ -1,0 +1,48 @@
+<div class="wrapper wrapper-content ">
+  <div class="row">
+      
+      <div class="col-lg-6">
+        <div class="panel panel-default">
+          <div class="panel-heading"><h3 class="panel-title text-center">Resumen </h3></div>
+          <div class="panel-body">
+            <div class="list-group">
+              <a
+                ng-repeat="c in vm.calificaciones" 
+                ui-sref="index.indicadores.resumen.calificacion({tipo:'{{c.nombre.words()[0]}}', calificacionId: {{c.id}}  })"
+                ui-sref-active="active"
+                class="list-group-item">{{c.nombre.capitalize()}}
+                <span class="badge badge-info">
+                    {{c.valor | number:2 }}
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-lg-6">
+        <ui-view></ui-view>
+      </div>
+  </div>
+
+  <div class="row">
+     <div class="col-lg-12">
+        <div class="panel panel-success">
+            <div class="panel-heading"><h3 class="panel-title">Histórico </h3></div>
+            <div class="panel-body">
+                <canvas 
+                  tc-chartjs 
+                  chart-type="line" 
+                  chart-data="vm.data" 
+                  chart-options="vm.options"
+                  >
+                    
+                </canvas>
+            </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+

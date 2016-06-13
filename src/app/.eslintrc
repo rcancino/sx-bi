@@ -1,0 +1,27 @@
+{
+  "extends": ["../../.eslintrc"],
+  "env": {
+    "node": false,
+    "browser": true
+  },
+  "globals": {
+  },
+  "rules": {
+    
+    "no-console": 1,
+    // overrides from 'recommended'
+    "comma-dangle": 0,
+
+    // strict
+    "strict": [2, "safe"],
+    //angular
+    "angular/file-name": [2,
+      {
+        "nameStyle":"dash",
+        "typeSeparator":"dot",
+        "ignoreTypeSuffix":true,
+        "ignorePrefix":"sx"
+
+      }]
+  }
+}

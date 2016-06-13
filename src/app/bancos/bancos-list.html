@@ -1,0 +1,67 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-12">
+        <h2>Catálogo de bancos</h2>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <!-- <div class="ibox-title">
+                    <h5>Lista de bancos </h5>
+
+                    <div ibox-tools></div>
+                </div> -->
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-sm-4 m-b-xs">
+                            <div data-toggle="buttons" class="btn-group">
+                                
+                                <a ui-sref="index.createBanco" class="btn btn-outline btn-success">
+                                    <i class="fa fa-check"></i>Nuevo
+                                </a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table class="table  table-condensed table-striped table-hover">
+                            <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Razón social</th>
+                                <th>Clave SAT</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="banco in vm.bancos">
+                                <td>{{banco.clave}}</td>
+                                <td>{{banco.razonSocial}}</td>
+                                <td>{{banco.claveSat}}</td>
+                                <td class="text-center">
+                                    <a ui-sref="index.editBanco({bancoId:banco.id})" 
+                                        class="btn btn-default btn-outline ">
+                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                    </a>
+                                </td>
+                                <td class="text-center">
+                                    <button class="btn btn-outline btn-danger  " ng-click="vm.eliminar(banco)">
+                                         <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

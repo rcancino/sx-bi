@@ -1,0 +1,151 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-12">
+
+        <h2 ng-if="vm.editedBanco.id">
+            Mantenimiento de banco {{vm.editedBanco.clave}}
+        </h2>
+        <h2 ng-if="!vm.editedBanco.id">
+            Alta de banco
+        </h2>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+       <div class="col-lg-8">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Propiedades</h5>
+
+                    <div ibox-tools></div>
+                </div>
+                <div class="ibox-content">
+                    <div class="alert alert-danger" role="alert" ng-if="vm.errors">
+                        <li ng-repeat="error in vm.errors">{{error}}</li>
+                    </div>
+                    <form name="bancoForm"  class="form-horizontal" novalidate>
+
+                        <div class="form-group" 
+                            ng-class="{ 'has-error': bancoForm.clave.$invalid && !bancoForm.clave.$pristine}">
+                            <label class="col-lg-3 control-label">Nombre corto</label>
+
+                            <div class="col-lg-9">
+                                <input id="clave" name="clave" type="text" 
+                                    placeholder="Clave o nombre corto" 
+                                    class="form-control"
+                                    ng-model="vm.editedBanco.clave"
+                                    ng-minlength="3"
+                                    ng-maxlength="50" 
+                                    required sx-upper-case> 
+
+                                <div class="help-block m-b-none" 
+                                    ng-messages="bancoForm.clave.$error" 
+                                    ng-show="bancoForm.clave.$invalid && !bancoForm.clave.$pristine">
+                                    <div ng-messages-include="app/components/common/messages.html"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" 
+                            ng-class="{ 'has-error': bancoForm.razonSocial.$invalid && !bancoForm.razonSocial.$pristine}">
+                            <label class="col-lg-3 control-label">Razón social</label>
+
+                            <div class="col-lg-9">
+                                <input id="razonSocial" name="razonSocial" type="text" 
+                                    placeholder="" 
+                                    class="form-control"
+                                    ng-model="vm.editedBanco.razonSocial"
+                                    ng-minlength="3"
+                                    ng-maxlength="100"
+                                    required upper-case > 
+
+                                <div class="help-block m-b-none" 
+                                    ng-messages="bancoForm.razonSocial.$error" 
+                                    ng-show="bancoForm.razonSocial.$touched && bancoForm.razonSocial.$invalid ">
+                                    <div ng-messages-include="app/components/common/messages.html"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group"
+                            ng-class="{ 'has-error': bancoForm.claveSat.$invalid && !bancoForm.claveSat.$pristine}">
+
+                            <label class="col-lg-3 control-label">Clave SAT</label>
+
+                            <div class="col-lg-9">
+                                <input id="claveSat" name="claveSat" type="text" 
+                                    placeholder="Clave del SAT" 
+                                    class="form-control"
+                                    ng-model="vm.editedBanco.claveSat"
+                                    ng-minlength="2"
+                                    ng-maxlength="2"
+                                    ui-mask="99" 
+                                    ui-mask-placeholder 
+                                    ui-mask-placeholder-char="0"
+                                    required> 
+
+                                <div class="help-block m-b-none" 
+                                    ng-messages="bancoForm.claveSat.$error" 
+                                    ng-show="bancoForm.claveSat.$touched && bancoForm.claveSat.$invalid">
+                                    <div ng-messages-include="app/components/common/messages.html"></div>
+                                </div>
+                            </div>
+                            <!-- <div class="col-lg-9">
+                                <input id="claveSat" 
+                                    name="claveSat" 
+                                    type="text" 
+                                    placeholder="Clave del SAT" 
+                                    class="form-control"
+                                    ng-model="vm.editedBanco.claveSat"> 
+
+                                <div class="help-block m-b-none" 
+                                    ng-messages="bancoForm.claveSat.$error" 
+                                    ng-show="bancoForm.claveSat.$touched && bancoForm.claveSat.$invalid">
+                                    <div ng-messages-include="app/components/common/messages.html"></div>
+                                </div>
+                            </div> -->
+                        </div>
+                        
+
+                        <div class="form-group">
+                            <div class="col-lg-offset-3 col-lg-9">
+                                
+                                <button 
+                                    type="submit"
+                                    class="btn btn-sm btn-success"
+                                    ng-disabled="!bancoForm.$dirty ||  bancoForm.$invalid"
+                                    ng-click="vm.salvar(vm.editedBanco)">
+                                    <i class="fa fa-plus"></i> {{vm.editedBanco.id?'Actualizar':'Salvar'}}
+                                </button>
+                                <button 
+                                    class="btn btn-sm btn-default"
+                                    ui-sref="index.bancos">
+                                    <i class="fa fa-chevron-left"></i> Cancelar
+                                </button>
+                                
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="well">
+                <!-- <ul>
+                    <li>
+                        <p>Current banco</p>
+                        {{vm.currentBanco}}
+                    </li>
+                    <li>
+                        <p>Edited banco</p>
+                        {{vm.editedBanco}}
+                    </li>
+                </ul> -->
+                <p>{{bancoForm.$dirty}}</p>
+                <!-- <p>{{bancoForm}}</p> -->
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
