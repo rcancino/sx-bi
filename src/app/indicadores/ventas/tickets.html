@@ -1,0 +1,127 @@
+<div>
+  <uib-tabset active="active">
+    <uib-tab index="0" heading="Semana">
+      <table class="table  table-condensed  table-hover">
+        <thead>
+          <tr>
+            <th>Suc</th>
+            <th>Facs</th>
+            <th>Devs</th>
+            <th>Canc</th>
+            <th>Tick</th>
+            <th>%</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="" ng-repeat="v in vm.ventasPorSemana">
+            <td>{{v.sucursal }}</td>
+            <td>{{v.facturas| number:0}}</td>
+            <td>{{v.devoluciones | number:0}}</td>
+            <td>{{v.canceladas | number:0}}</td>
+            <td>{{v.venta/v.facturas | number:0 }}</td>
+            <td>{{ (v.canceladas + v.devoluciones)/v.facturas * 100 | number:2}}</td>
+          </tr>
+          <tr class="active">
+            <th></th>
+            <th></th>
+            <th>Resumen</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+          <tr ng-repeat="v in vm.resumenPorSemana">
+            <td>{{v.tipo }}</td>
+            <td>{{v.facturas | number:0 }}</td>
+            <td>{{v.devoluciones | number:0 }}</td>
+            <td>{{v.canceladas | number:0 }}</td>
+            <td>{{v.venta/v.facturas | number:0}}</td>
+            <td>{{ (v.canceladas + v.devoluciones)/v.facturas * 100 | number:2}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </uib-tab>
+
+    <uib-tab index="1" heading="Mes">
+      <table class="table  table-condensed  table-hover">
+        <thead>
+          <tr>
+            <th>Suc</th>
+            <th>Facs</th>
+            <th>Devs</th>
+            <th>Canc</th>
+            <th>Tick</th>
+            <th>%</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="" ng-repeat="v in vm.ventasPorCalendario.ventasPorMes">
+            <td>{{v.sucursal }}</td>
+            <td>{{v.facturas| number:0}}</td>
+            <td>{{v.devoluciones | number:0}}</td>
+            <td>{{v.canceladas | number:0}}</td>
+            <td>{{v.venta/v.facturas | number:0 }}</td>
+            <td>{{ (v.canceladas + v.devoluciones)/v.facturas * 100 | number:2}}</td>
+          </tr>
+          <tr class="active">
+            <th></th>
+            <th></th>
+            <th>Resumen</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+          <tr ng-repeat="v in vm.ventasPorCalendario.resumenPorMes">
+            <td>{{v.tipo }}</td>
+            <td>{{v.facturas | number:0 }}</td>
+            <td>{{v.devoluciones | number:0 }}</td>
+            <td>{{v.canceladas | number:0 }}</td>
+            <td>{{v.venta/v.facturas | number:0}}</td>
+            <td>{{ (v.canceladas + v.devoluciones)/v.facturas * 100 | number:2}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </uib-tab>
+
+    <uib-tab index="2" heading="Año">
+      <table class="table  table-condensed  table-hover">
+        <thead>
+          <tr>
+            <th>Suc</th>
+            <th>Facs</th>
+            <th>Devs</th>
+            <th>Canc</th>
+            <th>Tick</th>
+            <th>%</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="" ng-repeat="v in vm.ventasPorCalendario.ventasPorAno">
+            <td>{{v.sucursal }}</td>
+            <td>{{v.facturas| number:0}}</td>
+            <td>{{v.devoluciones | number:0}}</td>
+            <td>{{v.canceladas | number:0}}</td>
+            <td>{{v.venta/v.facturas | number:0 }}</td>
+            <td>{{ (v.canceladas + v.devoluciones)/v.facturas * 100 | number:2}}</td>
+          </tr>
+          <tr class="active">
+            <th></th>
+            <th></th>
+            <th>Resumen</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+          <tr ng-repeat="v in vm.ventasPorCalendario.resumenPorAno">
+            <td>{{v.tipo }}</td>
+            <td>{{v.facturas | number:0 }}</td>
+            <td>{{v.devoluciones | number:0 }}</td>
+            <td>{{v.canceladas | number:0 }}</td>
+            <td>{{v.venta/v.facturas | number:0}}</td>
+            <td>{{ (v.canceladas + v.devoluciones)/v.facturas * 100 | number:2}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </uib-tab>
+  </uib-tabset>
+</div>
+

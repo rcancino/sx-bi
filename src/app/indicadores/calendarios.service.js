@@ -4,8 +4,6 @@
     .module('sxBi')
     .factory('calendariosService', calendariosService);
 
-  //calendariosService.$inject = ['$http', '$localStorage'];
-
   /** @ngInject */
   function calendariosService ($http, Config, $localStorage, $rootScope) {
     var service = {

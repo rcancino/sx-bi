@@ -1,0 +1,115 @@
+<div>
+  <uib-tabset active="active">
+    <uib-tab index="0" heading="Semana">
+      <table class="table  table-condensed  table-hover">
+        <thead>
+          <tr>
+            <th>Sucursal</th>
+            <th>Toneladas</th>
+            <th>Part</th>
+            <th >Venta</th>
+            <th>Precio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="" ng-repeat="v in vm.ventasPorSemana">
+            <td>{{v.sucursal }}</td>
+            <td>{{v.toneladas | number:0}}</td>
+            <td>{{v.participacion | number:2}}</td>
+            <td>{{v.venta | number:0 }}</td>
+            <td>{{v.precio | number:2}}</td>
+          </tr>
+          <tr class="active">
+            <th></th>
+            <th></th>
+            <th>Resumen</th>
+            <th></th>
+            <th></th>
+          </tr>
+          <tr ng-repeat="v in vm.resumenPorSemana">
+            <td>{{v.tipo }}</td>
+            <td>{{v.toneladas | number:0}}</td>
+            <td>{{v.venta | number:0 }}</td>
+            <td>{{v.getParticipacion() | number:2 }}</td>
+            <td>{{v.getPrecio() | number:2}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </uib-tab>
+
+    <uib-tab index="1" heading="Mes">
+      <table class="table  table-condensed  table-hover">
+        <thead>
+          <tr>
+            <th>Sucursal</th>
+            <th>Toneladas</th>
+            <th>Part</th>
+            <th >Venta</th>
+            <th>Precio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="" ng-repeat="v in vm.ventasPorCalendario.ventasPorMes">
+            <td>{{v.sucursal }}</td>
+            <td>{{v.toneladas | number:0}}</td>
+            <td>{{v.participacion | number:2}}</td>
+            <td>{{v.venta | number:0 }}</td>
+            <td>{{v.precio | number:2}}</td>
+          </tr>
+          <tr class="active">
+            <th></th>
+            <th></th>
+            <th>Resumen</th>
+            <th></th>
+            <th></th>
+          </tr>
+          <tr ng-repeat="v in vm.ventasPorCalendario.resumenPorMes">
+            <td>{{v.tipo }}</td>
+            <td>{{v.toneladas | number:0}}</td>
+            <td>{{v.venta | number:0 }}</td>
+            <td>{{v.getParticipacion() | number:2 }}</td>
+            <td>{{v.getPrecio() | number:2}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </uib-tab>
+
+    <uib-tab index="2" heading="Año">
+      <table class="table  table-condensed  table-hover">
+        <thead>
+          <tr>
+            <th>Sucursal</th>
+            <th>Toneladas</th>
+            <th>Part</th>
+            <th >Venta</th>
+            <th>Precio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="" ng-repeat="v in vm.ventasPorCalendario.ventasPorAno">
+            <td>{{v.sucursal }}</td>
+            <td>{{v.toneladas | number:0}}</td>
+            <td>{{v.participacion | number:2}}</td>
+            <td>{{v.venta | number:0 }}</td>
+            <td>{{v.precio | number:2}}</td>
+          </tr>
+          <tr class="active">
+            <th></th>
+            <th></th>
+            <th>Resumen</th>
+            <th></th>
+            <th></th>
+          </tr>
+          <tr ng-repeat="v in vm.ventasPorCalendario.resumenPorAno">
+            <td>{{v.tipo }}</td>
+            <td>{{v.toneladas | number:0}}</td>
+            <td>{{v.venta | number:0 }}</td>
+            <td>{{v.getParticipacion() | number:2 }}</td>
+            <td>{{v.getPrecio() | number:2}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </uib-tab>
+  </uib-tabset>
+</div>
+

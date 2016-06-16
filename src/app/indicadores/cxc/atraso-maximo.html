@@ -1,0 +1,95 @@
+<div class="ibox float-e-margins">
+  <div class="ibox-title">
+    <!-- <h5>Atraso máximo</h5> -->
+    <ol class="breadcrumb">
+      <li class="active">
+          <strong>Atraso máximo</strong>
+      </li>
+      <li>
+          <a ui-sref="index.indicadores.juridico"> Juridico</a>
+      </li>
+    </ol> 
+    <div class="ibox-tools">
+      <a ng-click="vm.print()">
+        <i class="fa fa-print"></i>
+      </a>
+      <a class="collapse-link">
+          <i class="fa fa-chevron-up"></i>
+      </a>
+      <a class="close-link">
+          <i class="fa fa-times"></i>
+      </a>
+    </div>
+  </div>
+  <div class="ibox-content">
+    <div class="table-responsive ">
+      <table class="table  table-condensed  table-bordered table-hover cxc-view text-right">
+        <thead>
+          <tr>
+            <th class="text-left">Nombre</th>
+            <th>Pzo</th>
+            <th>Línea</th>
+            <th>Facs</th>
+            <th>Atr max</th>
+            <th>Saldo</th>
+            <th>X vencer</th>
+            <th>Vencido</th>
+            <th>1 a 30</th>
+            <th>31 a 60</th>
+            <th>61 a 90</th>
+            <th>&gt90+</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in vm.clientes" ng-class="{ 'bg-danger':item.atrasomas91>0}">
+            <td class="text-left">{{item.nombre }}</td>
+            <td>{{item.plazo | number:0}}</td>
+            <td>{{item.lineaCredito | number:0 }}</td>
+            <td>{{item.facturas | number:0 }}</td>
+            <td>{{item.atrasoMax | number:0 }}</td>
+            <td>{{item.saldo | number:0 }}</td>
+            <td>{{item.porVencer | number:0 }}</td>
+            <td>{{item.vencido | number:0 }}</td>
+            <td>{{item.atraso1a30 | number:0 }}</td>
+            <td>{{item.atraso31a60 | number:0 }}</td>
+            <td>{{item.atraso61a90 | number:0 }}</td>
+            <td>{{item.atrasomas91 | number:0}}</td>
+          </tr>
+          <tr>
+            <td class="text-left">Total</td>
+            <td>{{vm.total.plazo | number:0}}</td>
+            <td>{{vm.total.lineaCredito | number:0 }}</td>
+            <td>{{vm.total.facturas | number:0 }}</td>
+            <td>{{vm.total.atrasoMax | number:0 }}</td>
+            <td>{{vm.total.saldo | number:0 }}</td>
+            <td>{{vm.total.porVencer | number:0 }}</td>
+            <td>{{vm.total.vencido | number:0 }}</td>
+            <td>{{vm.total.atraso1a30 | number:0 }}</td>
+            <td>{{vm.total.atraso31a60 | number:0 }}</td>
+            <td>{{vm.total.atraso61a90 | number:0 }}</td>
+            <td ng-class="{ 'text-danger':vm.total.atrasomas91>0}">{{vm.total.atrasomas91  | number:0}}</td>
+          </tr>
+          <tr>
+            <td class="text-left">Total de cleintes {{vm.gtotal.atrasoMax}}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{vm.gtotal.saldo | number:0 }}</td>
+            <td>{{vm.gtotal.porVencer | number:0 }}</td>
+            <td>{{vm.gtotal.vencido | number:0 }}</td>
+            <td>{{vm.gtotal.atraso1a30 | number:0 }}</td>
+            <td>{{vm.gtotal.atraso31a60 | number:0 }}</td>
+            <td>{{vm.gtotal.atraso61a90 | number:0 }}</td>
+            <td ng-class="{ 'text-danger':vm.total.atrasomas91>0}"">{{vm.gtotal.atrasomas91  | number:0}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="ibox-footer">
+    <a ui-sref="index.indicadores.juridico" class="btn btn-success btn-outline"> Juridico</a>
+  </div>
+</div>
+
+

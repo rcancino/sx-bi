@@ -1,0 +1,27 @@
+<div>
+  <table class="table  table-condensed  table-hover">
+    <thead>
+      <tr>
+        <th>Almacén</th>
+        <th>Toneladas</th>
+        <th>Part</th>
+        <th >Costo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="" ng-repeat="v in vm.inventarios">
+        <td>{{v.almacen }}</td>
+        <td>{{v.toneladas | number:0}}</td>
+        <td>{{v.participacion | number:2}} %</td>
+        <td>{{v.costo | number:0 }}</td>
+      </tr>
+      <tr class="total" >
+        <td>Total</td>
+        <td>{{vm.totales.toneladas | number:0}}</td>
+        <td>{{vm.totales.participacion | number:0}} %</td>
+        <td>{{vm.totales.costo | number:0}}</td>
+        
+      </tr>
+    </tbody>
+  </table>
+</div>  

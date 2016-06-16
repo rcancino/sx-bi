@@ -1,0 +1,71 @@
+<div class="ibox float-e-margins">
+  <div class="ibox-title">
+    <h5>Inventarios</h5>
+    <div class="ibox-tools">
+      <a class="collapse-link">
+          <i class="fa fa-chevron-up"></i>
+      </a>
+      <a class="close-link">
+          <i class="fa fa-times"></i>
+      </a>
+    </div>
+  </div>
+  <div class="ibox-content">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="panel panel-default">
+          <div class="panel-heading"><p class="panel-title text-center">Existencia</p></div>
+          <div ng-include="'app/indicadores/inventarios/_existencias.html'"></div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="panel panel-default">
+          <div class="panel-heading"><p class="panel-title text-center">Pedidos por llegar</p></div>
+          <div ng-include="'app/indicadores/inventarios/_pendientes.html'"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="panel panel-success">
+          <div class="panel-heading"><p class="panel-title text-center">Comprobación</p></div>
+          <table class="table  table-condensed  table-hover">
+            <thead>
+              <tr>
+                <th>Propiedad</th>
+                <th>Valor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Inventario inicial:</td>
+                <td>{{vm.comprobacion.inicial}}</td>
+              </tr>
+              <tr>
+                <td>Ventas:</td>
+                <td>{{vm.comprobacion.ventas}}</td>
+              </tr>
+              <tr>
+                <td>Compras nacionales:</td>
+                <td>{{vm.comprobacion.comprasNal}}</td>
+              </tr>
+              <tr>
+                <td>Compras de importación:</td>
+                <td>{{vm.comprobacion.comprasImp}}</td>
+              </tr>
+              <tr>
+                <td>Inventario final:</td>
+                <td>{{vm.comprobacion.inicial+vm.comprobacion.ventas+vm.comprobacion.comprasNal+vm.comprobacion.comprasImp}}</td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+

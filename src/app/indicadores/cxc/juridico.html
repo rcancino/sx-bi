@@ -1,0 +1,69 @@
+<div class="ibox float-e-margins">
+  <div class="ibox-title">
+    <ol class="breadcrumb">
+      <li>
+          <a ui-sref="index.indicadores.atrasoMaximo" > Atraso máximo</a>
+      </li>
+      <li class="active">
+          <strong>Jurídico</strong>
+      </li>
+    </ol> 
+    <div class="ibox-tools">
+      <a class="collapse-link">
+          <i class="fa fa-chevron-up"></i>
+      </a>
+      <a class="close-link">
+          <i class="fa fa-times"></i>
+      </a>
+    </div>
+  </div>
+  <div class="ibox-content">
+    <div class="table-responsive">
+      <table class="table  table-condensed  table-bordered table-hover cxc-view text-right">
+        <thead>
+          <tr >
+            <th class="text-left">Nombre</th>
+            <th>Traspaso</th>
+            <th>Saldo</th>
+            <th>>Mes 1</th>
+            <th>Mes 2</th>
+            <th>Mes 3</th>
+            <th>U.Pago</th>
+            <th>Pago</th>
+            <th class="text-center">Abogado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in vm.clientesJuridico" >
+            <td class="text-left">{{item.nombre }}</td>
+            <td>{{item.traspaso | date:0}}</td>
+            <td>{{item.saldo | number:0 }}</td>
+            <td>{{item.mes1 | number:0 }}</td>
+            <td>{{item.mes2 | number:0 }}</td>
+            <td>{{item.mes3 | number:0 }}</td>
+            <td>{{item.ultimoPago | date:'dd/MM/yyyy' }}</td>
+            <td>{{item.pago | number:0 }}</td>
+            <td>{{item.abogado}}</td>
+          </tr>
+          <tr>
+            <td class="text-left">Total</td>
+            <td></td>
+            <td>{{vm.totalJuridico.saldo | number:0 }}</td>
+            <td>{{vm.totalJuridico.mes1 | number:0 }}</td>
+            <td>{{vm.totalJuridico.mes2 | number:0 }}</td>
+            <td>{{vm.totalJuridico.mes3 | number:0 }}</td>
+            <td>{{vm.totalJuridico.ultimoPago | date:'dd/MM/yyyy' }}</td>
+            <td>{{vm.totalJuridico.pago | number:0 }}</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  <div class="ibox-footer">
+    <a ui-sref="index.indicadores.atrasoMaximo" class="btn btn-success btn-outline"> Atraso máximo</a>
+  </div>
+</div>
+
+

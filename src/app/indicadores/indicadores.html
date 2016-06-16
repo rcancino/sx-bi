@@ -1,57 +1,18 @@
 <div class="row wrapper border-bottom white-bg page-heading">
-    <div class="col-lg-12">
-        <h2>Indicadores de desempeño</h2>
+    <div class="col-lg-10">
+        <h2>Indicadores de desempeño <span sx-calendario-info></span></h2>
+        <button class="btn btn-info dim" ng-click="vm.seleccionar()">
+          <i class="fa fa-calendar"></i>
+        </button>  
+    </div>
+    <div class="col-lg-2">
+      
     </div>
 </div>
-<div class="wrapper wrapper-content ">
-  <div class="row">
-      <div class="col-lg-12">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title pull-left" sx-calendario-info> </h3>
-            <button class="btn btn-default pull-right" ng-click="vm.seleccionar()">
-              <i class="fa fa-calendar"></i>
-            </button>
-            <div class="clearfix"></div>
-          </div>
-          <div class="panel-body">
-            <div ui-view>
-              <div class="list-group">
-              <a ui-sref="index.indicadores.resumen" 
-                ui-sref-active="active"
-                class="list-group-item">Resumen
-              </a>
-              <a ui-sref="index.indicadores.resumen" 
-                ui-sref-active="active"
-                class="list-group-item">Ventas
-              </a>
-              <a ui-sref="index.indicadores.resumen" 
-                ui-sref-active="active"
-                class="list-group-item">Cuentas por cobrar
-              </a>
-              <a ui-sref="index.indicadores.resumen" 
-                ui-sref-active="active"
-                class="list-group-item">Inventarios
-              </a>
-              <a ui-sref="index.indicadores.resumen" 
-                ui-sref-active="active"
-                class="list-group-item">Alcance
-              </a>
-              <a ui-sref="index.indicadores.resumen" 
-                ui-sref-active="active"
-                class="list-group-item">Embarques
-              </a>
 
-
-
-            </div>
-            </div>
-          </div>
-        </div>
-      </div>
-        
-    </div>
-  
+<div class="row wrapper wrapper-content animated fadeInRight">
+  <div ui-view></div>
 </div>
+
 
 

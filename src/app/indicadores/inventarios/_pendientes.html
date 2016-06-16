@@ -1,0 +1,24 @@
+<div>
+  <table class="table  table-condensed  table-hover">
+    <thead>
+      <tr>
+        <th>Mes</th>
+        <th>Pedidos</th>
+        <th>Toneladas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="v in vm.pendientes">
+        <td>{{v.mes }}</td>
+        <td>{{v.pedidos | number:0}}</td>
+        <td>{{v.toneladas | number:0}}</td>
+      </tr>
+      <tr class="total" >
+        <td>Total</td>
+        <td>{{vm.pedidosTotales.pedidos | number:0}}</td>
+        <td>{{vm.pedidosTotales.toneladas | number:0}}</td>
+        
+      </tr>
+    </tbody>
+  </table>
+</div>  

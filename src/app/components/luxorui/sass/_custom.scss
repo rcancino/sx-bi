@@ -5,8 +5,9 @@
   }
 }
 
-$navy: #5AB334;
+//$navy: #5AB334;
 $nav-profil-pattern: url("../../../../assets/images/patterns/header-profile.png") no-repeat;
+//$navbar-inverse-link-color: #5AADBB;
 
 .demo1 {
 	background-color: $navy;
@@ -19,4 +20,16 @@ $nav-profil-pattern: url("../../../../assets/images/patterns/header-profile.png"
     line-height: normal;
     width: 75%;
     padding-top: 8px;
+}
+.table {
+  .cxc {
+    font-size: 5px;
+  }
+}
+.cxc-view {
+  font-size: 10px;
+}
+.total {
+  font-weight: bold;
+  font-style: italic;
 }
