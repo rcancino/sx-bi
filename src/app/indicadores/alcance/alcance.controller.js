@@ -23,7 +23,7 @@
     });
 
     function cargarAlcance() {
-      papelKpiAlcance.getAlcance(vm.calendario)
+      alcanceService.getAlcance(vm.calendario)
       .then( function(data) {
         vm.alcance = data;
         vm.totales = getTotales(data);
@@ -36,7 +36,7 @@
     }
     
     function cargarAlcanceEspecial() {
-      papelKpiAlcance.getAlcance(vm.calendario, false)
+      alcanceService.getAlcance(vm.calendario, false)
       .then( function(data) {
         vm.alcanceEspecial = data;
         vm.totalEspecial = getTotales(data);
@@ -50,7 +50,7 @@
     }
 
     function cargarMargen() {
-      papelKpiAlcance.getMargen(vm.calendario)
+      alcanceService.getMargen(vm.calendario)
       .then( function(data) {
         vm.margen = data;
       })

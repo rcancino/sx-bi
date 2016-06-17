@@ -1,30 +1,32 @@
 <div class="ibox float-e-margins">
   <div class="ibox-title">
-    <h5>Alcance</h5>
-    <div class="ibox-tools">
-      <a class="collapse-link">
-          <i class="fa fa-chevron-up"></i>
-      </a>
-      <a class="close-link">
-          <i class="fa fa-times"></i>
-      </a>
-    </div>
+    <!-- <h5>Atraso máximo</h5> -->
+    <ol class="breadcrumb">
+      <li class="active">
+          <strong>Mayor a 6 meses</strong>
+      </li>
+      <li>
+          <a ui-sref="index.indicadores.juridico">Menor a 6</a>
+      </li>
+      <li>
+          <a ui-sref="index.indicadores.juridico">Medidas especiales</a>
+      </li>
+    </ol> 
+    <div class="ibox-tools"></div>
   </div>
+  
   <div class="ibox-content">
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="panel panel-default">
-          <div class="panel-heading"><p class="panel-title text-center">Mayor a 6 meses</p></div>
-          <div>
-            <table class="table  table-condensed  table-hover">
+    <div class="table-responsive ">
+      <table class="table  table-condensed  table-hover">
               <thead>
                 <tr>
                   <th>Línea</th>
-                  <th>Margen</th>
                   <th>Toneladas</th>
                   <th >Participacion</th>
                   <th>Productos</th>
                   <th>Costo</th>
+                  <th>Nacional</th>
+                  <th>Importado</th>
                 </tr>
               </thead>
               <tbody>
@@ -46,26 +48,7 @@
                 </tr>
               </tbody>
             </table>
-          </div>  
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="panel panel-default">
-          <div class="panel-heading"><p class="panel-title text-center">Menor a 6 meses</p></div>
-          <!-- <div ng-include="'app/indicadores/inventarios/_pendientes.html'"></div> -->
-        </div>
-      </div>
     </div>
-    <div class="row">
-      <div class="col-lg-offset-3 col-lg-6">
-        <div class="panel panel-default">
-          <div class="panel-heading"><p class="panel-title text-center">Medidas especiales</p></div>
-          <!-- <div ng-include="'app/indicadores/inventarios/_existencias.html'"></div> -->
-        </div>
-      </div>
-    </div>
-
-    
   </div>
   
 </div>

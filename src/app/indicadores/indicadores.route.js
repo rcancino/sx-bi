@@ -80,9 +80,9 @@
         controller: 'InventariosController',
         controllerAs: 'vm'
       })
-      .state('index.indicadores.alcance', {
-        url: '/inventarios',
-        templateUrl: 'app/indicadores/alcance/alcance.html',
+      .state('index.indicadores.alcanceMayor', {
+        url: '/alcanceMayor',
+        templateUrl: 'app/indicadores/alcance/alcance-mayor.html',
         controller: 'AlcanceController',
         controllerAs: 'vm'
       });
