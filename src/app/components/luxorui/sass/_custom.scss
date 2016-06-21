@@ -33,3 +33,14 @@ $nav-profil-pattern: url("../../../../assets/images/patterns/header-profile.png"
   font-weight: bold;
   font-style: italic;
 }
+@media screen {
+  .print {
+    display: none;
+  }
+}
+@media print {
+  nav, .footer, .page-heading, .ibox-title, .noprint {
+    display: none;
+  }
+  
+}

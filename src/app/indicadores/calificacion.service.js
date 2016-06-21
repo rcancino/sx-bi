@@ -9,7 +9,8 @@
 
     var service = {
       getCalificaciones: getCalificaciones,
-      getPartidas: getPartidas
+      getPartidas: getPartidas,
+      getComparativo: getComparativo
     };
     return service;
 
@@ -34,6 +35,20 @@
           return response.data;
         }, function(response) {
           $log.error(angular.toJson(response));
+        });
+    }
+
+    function getComparativo(calendario) {
+      var uri = Config.API_ENDPOINT + '/bi/estadisticas/comparativoCalificacion';
+      return $http.get(uri,
+        {
+          params: {
+            semana: calendario.semana,
+            ejercicio: calendario.year
+          }
+        })
+        .then( function (response) {
+          return response.data;
         });
     }
   }

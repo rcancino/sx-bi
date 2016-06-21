@@ -1,55 +1,35 @@
-<div class="ibox float-e-margins">
-  <div class="ibox-title">
-    <!-- <h5>Atraso máximo</h5> -->
-    <ol class="breadcrumb">
-      <li class="active">
-          <strong>Mayor a 6 meses</strong>
-      </li>
-      <li>
-          <a ui-sref="index.indicadores.juridico">Menor a 6</a>
-      </li>
-      <li>
-          <a ui-sref="index.indicadores.juridico">Medidas especiales</a>
-      </li>
-    </ol> 
-    <div class="ibox-tools"></div>
-  </div>
-  
-  <div class="ibox-content">
-    <div class="table-responsive ">
-      <table class="table  table-condensed  table-hover">
-              <thead>
-                <tr>
-                  <th>Línea</th>
-                  <th>Margen</th>
-                  <th>Toneladas</th>
-                  <th >Participacion</th>
-                  <th>Productos</th>
-                  <th>Costo</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="" ng-repeat="v in vm.alcance">
-                  <td>{{v.linea }}</td>
-                  <td>{{v.margenPorcentajeUt | number:2}} %</td>
-                  <td>{{v.mayorToneladas | number:2}}</td>
-                  <td>{{v.mayorParticipacion*100 | number:2}} %</td>
-                  <td>{{v.mayorProductos | number:0}}</td>
-                  <td>{{v.mayorCosto | number:0}}</td>
-                </tr>
-                <tr class="total" >
-                  <td>Totales</td>
-                  <td>{{vm.margen.deLinea | number:2}}</td>
-                  <td>{{vm.totales.mayorToneladas | number:2}} </td>
-                  <td>{{vm.totales.mayorParticipacion | number:2}} %</td>
-                  <td>{{vm.totales.mayorProductos | number:0}}</td>
-                  <td>{{vm.totales.mayorCosto | number:0}}</td>
-                </tr>
-              </tbody>
-            </table>
-    </div>
-  </div>
-  
+<div class="print row col-md-12">
+  <h4 class="text-center">Alcance mayor a 6 meses</h4>
 </div>
-
-
+<div class="table-responsive ">
+  <table class="table  table-condensed  table-hover">
+          <thead>
+            <tr>
+              <th>Línea</th>
+              <th>Margen</th>
+              <th>Toneladas</th>
+              <th >Participacion</th>
+              <th>Productos</th>
+              <th>Costo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="" ng-repeat="v in vm.alcance">
+              <td>{{v.linea }}</td>
+              <td>{{v.margenPorcentajeUt | number:2}} %</td>
+              <td>{{v.mayorToneladas | number:2}}</td>
+              <td>{{v.mayorParticipacion*100 | number:2}} %</td>
+              <td>{{v.mayorProductos | number:0}}</td>
+              <td>{{v.mayorCosto | number:0}}</td>
+            </tr>
+            <tr class="total" >
+              <td>Totales</td>
+              <td>{{vm.margen.deLinea | number:2}}</td>
+              <td>{{vm.totales.mayorToneladas | number:2}} </td>
+              <td>{{vm.totales.mayorParticipacion | number:2}} %</td>
+              <td>{{vm.totales.mayorProductos | number:0}}</td>
+              <td>{{vm.totales.mayorCosto | number:0}}</td>
+            </tr>
+          </tbody>
+  </table>
+</div>

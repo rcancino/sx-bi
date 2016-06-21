@@ -80,9 +80,27 @@
         controller: 'InventariosController',
         controllerAs: 'vm'
       })
-      .state('index.indicadores.alcanceMayor', {
-        url: '/alcanceMayor',
+      .state('index.indicadores.alcance', {
+        url: '/alcance',
+        templateUrl: 'app/indicadores/alcance/alcance.html',
+        controller: 'AlcanceController',
+        controllerAs: 'vm'
+      })
+      .state('index.indicadores.alcance.mayor', {
+        url: '/mayor',
         templateUrl: 'app/indicadores/alcance/alcance-mayor.html',
+        controller: 'AlcanceController',
+        controllerAs: 'vm'
+      })
+      .state('index.indicadores.alcance.menor', {
+        url: '/menor',
+        templateUrl: 'app/indicadores/alcance/alcance-menor.html',
+        controller: 'AlcanceController',
+        controllerAs: 'vm'
+      })
+      .state('index.indicadores.alcance.especial', {
+        url: '/especial',
+        templateUrl: 'app/indicadores/alcance/alcance-especial.html',
         controller: 'AlcanceController',
         controllerAs: 'vm'
       });

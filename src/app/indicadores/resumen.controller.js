@@ -8,25 +8,18 @@
   /** @ngInject */
   function ResumenController($scope, $log, calendariosService, Calificacion, $state) {
     var vm = this;
-    //vm.getCalificacion = getCalificacion
     activate();
-    updateGraph();
+
     function activate() {
-      $log.info('Activando controlador: PapelKpiResumenController.....');
       vm.calendario = calendariosService.getCurrent();
-      if (vm.calendario) {
-        Calificacion.getCalificaciones(vm.calendario)
-          .then(function(data) {
-            vm.calificaciones = data;
-          });
-      }
-      $scope.$on('CALENDARIO_UPDATED', function() {
-        //$log.info('Calendario actualizado...');
-        vm.calendario = calendariosService.getCurrent();
-        loadCalificaciones();
-        $state.go('index.indicadores.resumen');
-      });
+      loadCalificaciones();
+      loadGraphicData();
     }
+
+    $scope.$on('CALENDARIO_UPDATED', function() {
+      //activate();
+      $state.go('index.indicadores.resumen');
+    });
 
     function loadCalificaciones() {
       //$log.info('Actualizando calificaciones para: ');
@@ -38,8 +31,28 @@
       }
     }
 
+    function loadGraphicData() {
+      Calificacion.getComparativo(vm.calendario)
+        .then(function(data) {
+          vm.comparativoData = data;
+          updateGraph();
+        })
+        .catch( function(response) {
+          $log.error('Error al cargar datos de comparativo ' + response.statusText);
+        });
+    }
+
     function updateGraph() {
-      vm.labels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
+      vm.labels = vm.comparativoData.map(function(item) {
+        return item.semana;
+      });
+      vm.year1 = vm.comparativoData.map(function(item) {
+        return item.year1
+      });
+      vm.year2 = vm.comparativoData.map(function(item) {
+        return item.year2
+      });
+      //vm.labels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
       var labels = [];
       for (var i = 1; i <= 53; i++) {
         labels.push(i.toString());
@@ -52,7 +65,8 @@
             fill: false,
             borderColor: '#7B9FD6',
             backgroundColor: '#7B9FD6',
-            data: [0.00, 8.51, 8.26, 8.33, 9.23, 8.89, 9.14, 8.77, 8.78, 9.29, 9.44, 9.34, 8.69, 8.79, 9.43, 9.54, 9.61, 9.69, 9.43, 9.12, 9.00, 9.32, 9.04, 0.00, ],
+            //data: [0.00, 8.51, 8.26, 8.33, 9.23, 8.89, 9.14, 8.77, 8.78, 9.29, 9.44, 9.34, 8.69, 8.79, 9.43, 9.54, 9.61, 9.69, 9.43, 9.12, 9.00, 9.32, 9.04, 0.00, ],
+            data: vm.year1
           },
           {
             label: 'Año 2015',
@@ -60,7 +74,8 @@
             pointStyle: 'circle',
             borderColor: '#D6B43F',
             backgroundColor: '#D6B43F',
-            data: [9.00, 9.00, 9.00, 9.00, 9.00, 9.00, 9.00, 9.00, 9.00, 9.00, 9.00, 9.00, 9.00, 9.00, 9.00, 9.00, 9.00, 9.00, 8.55, 8.44, 8.93, 9.03, 8.47, 9.17, ]
+            //data: [9.00, 9.00, 9.00, 9.00, 9.00, 9.00, 9.00, 9.00, 9.00, 9.00, 9.00, 9.00, 9.00, 9.00, 9.00, 9.00, 9.00, 9.00, 8.55, 8.44, 8.93, 9.03, 8.47, 9.17, ]
+            data: vm.year2
           }
         ]
       };

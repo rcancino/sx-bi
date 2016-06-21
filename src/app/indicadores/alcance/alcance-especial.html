@@ -1,0 +1,32 @@
+<div class="table-responsive ">
+  <table class="table  table-condensed  table-hover">
+    <thead>
+      <tr>
+        <th>Línea</th>
+        <th>Margen</th>
+        <th>Toneladas</th>
+        <th >Participacion</th>
+        <th>Productos</th>
+        <th>Costo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="" ng-repeat="v in vm.alcanceEspecial">
+        <td>{{v.linea }}</td>
+        <td>{{v.margenPorcentajeUt | number:2}} %</td>
+        <td>{{v.mayorToneladas | number:2}}</td>
+        <td>{{v.mayorParticipacion*100 | number:2}} %</td>
+        <td>{{v.mayorProductos | number:0}}</td>
+        <td>{{v.mayorCosto | number:0}}</td>
+      </tr>
+      <tr class="total" >
+        <td>Totales</td>
+        <td>{{vm.margen.deLinea | number:2}}</td>
+        <td>{{vm.totales.mayorToneladas | number:2}} </td>
+        <td>{{vm.totales.mayorParticipacion | number:2}} %</td>
+        <td>{{vm.totales.mayorProductos | number:0}}</td>
+        <td>{{vm.totales.mayorCosto | number:0}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

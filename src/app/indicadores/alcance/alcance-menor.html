@@ -1,56 +1,49 @@
-<div class="ibox float-e-margins">
-  <div class="ibox-title">
-    <!-- <h5>Atraso máximo</h5> -->
-    <ol class="breadcrumb">
-      <li class="active">
-          <strong>Mayor a 6 meses</strong>
-      </li>
-      <li>
-          <a ui-sref="index.indicadores.juridico">Menor a 6</a>
-      </li>
-      <li>
-          <a ui-sref="index.indicadores.juridico">Medidas especiales</a>
-      </li>
-    </ol> 
-    <div class="ibox-tools"></div>
-  </div>
-  
-  <div class="ibox-content">
-    <div class="table-responsive ">
-      <table class="table  table-condensed  table-hover">
-              <thead>
-                <tr>
-                  <th>Línea</th>
-                  <th>Toneladas</th>
-                  <th >Participacion</th>
-                  <th>Productos</th>
-                  <th>Costo</th>
-                  <th>Nacional</th>
-                  <th>Importado</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="" ng-repeat="v in vm.alcance">
-                  <td>{{v.linea }}</td>
-                  <td>{{v.margenPorcentajeUt | number:2}} %</td>
-                  <td>{{v.mayorToneladas | number:2}}</td>
-                  <td>{{v.mayorParticipacion*100 | number:2}} %</td>
-                  <td>{{v.mayorProductos | number:0}}</td>
-                  <td>{{v.mayorCosto | number:0}}</td>
-                </tr>
-                <tr class="total" >
-                  <td>Totales</td>
-                  <td>{{vm.margen.deLinea | number:2}}</td>
-                  <td>{{vm.totales.mayorToneladas | number:2}} </td>
-                  <td>{{vm.totales.mayorParticipacion | number:2}} %</td>
-                  <td>{{vm.totales.mayorProductos | number:0}}</td>
-                  <td>{{vm.totales.mayorCosto | number:0}}</td>
-                </tr>
-              </tbody>
-            </table>
-    </div>
-  </div>
-  
+<div class="print row col-md-12">
+  <h4 class="text-center">Alcance menor a 6 meses</h4>
 </div>
-
-
+<div class="table-responsive ">
+  <table class="table  table-condensed  table-hover">
+          <thead>
+            <tr>
+              <th>Línea</th>
+              <th>Toneladas</th>
+              <th >Participacion</th>
+              <th>Productos</th>
+              <th>Costo</th>
+              <th colspan="2">Nacional</th>
+              <th colspan="2">Importado</th>
+            </tr>
+            <tr>
+              <th colspan="5"></th>
+              <th>&lt1</th>
+              <th>&lt0.5</th>
+              <th>&lt1</th>
+              <th>&lt0.5</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="" ng-repeat="v in vm.alcance">
+              <td>{{v.linea }}</td>
+              <td>{{v.menorToneladas | number:2}} </td>
+              <td>{{v.menorParticipacion*100 | number:2}} %</td>
+              <td>{{v.menorProductos | number:0}}</td>
+              <td>{{v.menorCosto | number:0}}</td>
+              <td>{{v.menorDias1Nal | number:0}}</td>
+              <td>{{v.menorDias2Nal | number:0}}</td>
+              <td>{{v.menorDias1Imp | number:0}}</td>
+              <td>{{v.menorDias2Imp | number:0}}</td>
+            </tr>
+            <tr class="total" >
+              <td>Totales</td>
+              <td>{{vm.totales.menorToneladas | number:2}} </td>
+              <td>{{100}} %</td>
+              <td>{{vm.totales.menorProductos | number:0}}</td>
+              <td>{{vm.totales.menorCosto | number:0}}</td>
+              <td>{{vm.totales.menorDias1Nal | number:0}}</td>
+              <td>{{vm.totales.menorDias2Nal | number:0}}</td>
+              <td>{{vm.totales.menorDias1Imp | number:0}}</td>
+              <td>{{vm.totales.menorDias2Imp | number:0}}</td>
+            </tr>
+          </tbody>
+  </table>
+</div>

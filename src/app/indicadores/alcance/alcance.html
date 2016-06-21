@@ -1,73 +1,40 @@
 <div class="ibox float-e-margins">
   <div class="ibox-title">
-    <h5>Alcance</h5>
-    <div class="ibox-tools">
-      <a class="collapse-link">
-          <i class="fa fa-chevron-up"></i>
-      </a>
-      <a class="close-link">
-          <i class="fa fa-times"></i>
-      </a>
-    </div>
+    <ol class="breadcrumb">
+      <li ui-sref-active="active">
+          <a ui-sref="index.indicadores.alcance.mayor" >Mayor a 6 meses</a>
+      </li>
+      <li ui-sref-active="active">
+          <a ui-sref="index.indicadores.alcance.menor">Menor a 6 meses</a>
+      </li>
+      <li ui-sref-active="active">
+          <a ui-sref="index.indicadores.alcance.especial">Medidas especiales</a>
+      </li>
+    </ol> 
+    <div class="ibox-tools"></div>
   </div>
+  
   <div class="ibox-content">
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="panel panel-default">
-          <div class="panel-heading"><p class="panel-title text-center">Mayor a 6 meses</p></div>
-          <div>
-            <table class="table  table-condensed  table-hover">
-              <thead>
-                <tr>
-                  <th>Línea</th>
-                  <th>Margen</th>
-                  <th>Toneladas</th>
-                  <th >Participacion</th>
-                  <th>Productos</th>
-                  <th>Costo</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="" ng-repeat="v in vm.alcance">
-                  <td>{{v.linea }}</td>
-                  <td>{{v.margenPorcentajeUt | number:2}} %</td>
-                  <td>{{v.mayorToneladas | number:2}}</td>
-                  <td>{{v.mayorParticipacion*100 | number:2}} %</td>
-                  <td>{{v.mayorProductos | number:0}}</td>
-                  <td>{{v.mayorCosto | number:0}}</td>
-                </tr>
-                <tr class="total" >
-                  <td>Totales</td>
-                  <td>{{vm.margen.deLinea | number:2}}</td>
-                  <td>{{vm.totales.mayorToneladas | number:2}} </td>
-                  <td>{{vm.totales.mayorParticipacion | number:2}} %</td>
-                  <td>{{vm.totales.mayorProductos | number:0}}</td>
-                  <td>{{vm.totales.mayorCosto | number:0}}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>  
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="panel panel-default">
-          <div class="panel-heading"><p class="panel-title text-center">Menor a 6 meses</p></div>
-          <!-- <div ng-include="'app/indicadores/inventarios/_pendientes.html'"></div> -->
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-offset-3 col-lg-6">
-        <div class="panel panel-default">
-          <div class="panel-heading"><p class="panel-title text-center">Medidas especiales</p></div>
-          <!-- <div ng-include="'app/indicadores/inventarios/_existencias.html'"></div> -->
-        </div>
-      </div>
-    </div>
-
-    
+    <ui-view></ui-view>
   </div>
   
 </div>
 
 
+
+<!-- <div class="ibox  float-e-margins" >
+  <div class="ibox-content">
+    <uib-tabset active="activeJustified" justified="true" >
+      <uib-tab index="0" heading="Mayor a 6 meses" classes="bg-info">
+        <div ng-include="'app/indicadores/alcance/_mayor.html'"></div>
+      </uib-tab>
+      <uib-tab index="1" heading="Menor a 6 meses">
+        <div ng-include="'app/indicadores/alcance/_menor.html'"></div>
+      </uib-tab>
+      <uib-tab index="2" heading="Especial">
+        <div ng-include="'app/indicadores/alcance/_especial.html'"></div>
+      </uib-tab>
+    </uib-tabset>
+  </div>
+</div> -->
+  

@@ -5,7 +5,7 @@
     .controller('AlcanceController', AlcanceController);
 
   function AlcanceController(calendariosService, alcanceService, $scope, $log) {
-    $log.info('Inicializando controlador AlcanceController');
+    //$log.info('Inicializando controlador AlcanceController');
     var vm = this;
     vm.data = {};
     activate();
@@ -40,12 +40,11 @@
       .then( function(data) {
         vm.alcanceEspecial = data;
         vm.totalEspecial = getTotales(data);
-        $log.info('Totales: ' + angular.toJson(vm.totales));
+        //$log.info('Totales: ' + angular.toJson(vm.totales));
       })
       .catch( function(response) {
-        $log.error('Http error status: ' + response.status);
-        $log.error(response.statusText);
-        $log.info('Error cargando inventarios....');
+        $log.error('Http error status: ' + response.status + ' ' + response.statusText);
+        //$log.info('Error cargando inventarios....');
       });
     }
 
@@ -55,9 +54,7 @@
         vm.margen = data;
       })
       .catch( function(response) {
-        $log.error('Http error status: ' + response.status);
-        $log.error(response.statusText);
-        $log.info('Error cargando datos....');
+        $log.error('Http error status: ' + response.status + ' ' + response.statusText);
       });
     }
 
